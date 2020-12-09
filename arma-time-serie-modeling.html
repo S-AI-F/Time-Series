@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 ARMA Time serie modeling | Time Series with R</title>
+  <meta name="description" content="This is a tutorial of time series analysis with R." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 ARMA Time serie modeling | Time Series with R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a tutorial of time series analysis with R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 ARMA Time serie modeling | Time Series with R" />
+  
+  <meta name="twitter:description" content="This is a tutorial of time series analysis with R." />
+  
+
+<meta name="author" content="Saif Shabou" />
+
+
+<meta name="date" content="2020-12-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="time-series-forecasting.html"/>
+<script src="libs/header-attrs-2.1/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tie Series Analysis with R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-a-time-series"><i class="fa fa-check"></i><b>2.1</b> What is a Time Series</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introduction.html"><a href="introduction.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#time-series-exploration"><i class="fa fa-check"></i><b>2.2</b> Time Series exploration</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#understanding-your-time-series"><i class="fa fa-check"></i><b>2.2.1</b> Understanding your Time Series</a></li>
+<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#what-is-a-stationary-time-series"><i class="fa fa-check"></i><b>2.2.2</b> What is a Stationary Time Series ?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#how-to-extract-the-trend-seasonality-and-error"><i class="fa fa-check"></i><b>2.2.3</b> How to extract the trend, seasonality and error?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#time-series-patterns"><i class="fa fa-check"></i><b>2.3</b> Time Series patterns</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#how-to-de-trend-a-time-series"><i class="fa fa-check"></i><b>2.3.1</b> How to de-trend a time series ?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#how-to-de-seasonalize-a-time-series-in-r"><i class="fa fa-check"></i><b>2.3.2</b> How to de-seasonalize a time series in R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#auto-correlation-in-time-series-analysis"><i class="fa fa-check"></i><b>2.4</b> Auto-correlation in Time Series Analysis</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#elementary-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Elementary statistics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#stationarity-in-time-series-analysis"><i class="fa fa-check"></i><b>2.4.2</b> Stationarity in time series analysis</a></li>
+<li class="chapter" data-level="2.4.3" data-path="introduction.html"><a href="introduction.html#auto-correlation"><i class="fa fa-check"></i><b>2.4.3</b> Auto-correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#references"><i class="fa fa-check"></i><b>2.5</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html"><i class="fa fa-check"></i><b>3</b> ARMA Time serie modeling</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#auto-regressive-time-series-model"><i class="fa fa-check"></i><b>3.1</b> Auto-Regressive Time Series model</a></li>
+<li class="chapter" data-level="3.2" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#moving-average-time-series-model"><i class="fa fa-check"></i><b>3.2</b> Moving Average Time Series Model</a></li>
+<li class="chapter" data-level="3.3" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#model-selection-ar-or-ma"><i class="fa fa-check"></i><b>3.3</b> Model selection: AR or MA</a></li>
+<li class="chapter" data-level="3.4" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#references-1"><i class="fa fa-check"></i><b>3.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>4</b> Time Series Forecasting</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#performance-metrics"><i class="fa fa-check"></i><b>4.2</b> Performance metrics</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#forecast-errors"><i class="fa fa-check"></i><b>4.2.1</b> Forecast errors</a></li>
+<li class="chapter" data-level="4.2.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#r-squared"><i class="fa fa-check"></i><b>4.2.2</b> R-squared</a></li>
+<li class="chapter" data-level="4.2.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#mean-absolute-error-mse"><i class="fa fa-check"></i><b>4.2.3</b> Mean Absolute Error (MSE)</a></li>
+<li class="chapter" data-level="4.2.4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#median-absolute-error-medae"><i class="fa fa-check"></i><b>4.2.4</b> Median Absolute Error (MedAE)</a></li>
+<li class="chapter" data-level="4.2.5" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#mean-squared-error-mse"><i class="fa fa-check"></i><b>4.2.5</b> Mean Squared Error (MSE)</a></li>
+<li class="chapter" data-level="4.2.6" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#application"><i class="fa fa-check"></i><b>4.2.6</b> Application</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#naive-methods"><i class="fa fa-check"></i><b>4.3</b> Naive methods</a></li>
+<li class="chapter" data-level="4.4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#exponential-smoothing"><i class="fa fa-check"></i><b>4.4</b> Exponential smoothing</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#state-space-models"><i class="fa fa-check"></i><b>4.4.1</b> State Space Models</a></li>
+<li class="chapter" data-level="4.4.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#double-seasonal-holt-winters"><i class="fa fa-check"></i><b>4.4.2</b> Double seasonal Holt-Winters</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#arimasarima-models"><i class="fa fa-check"></i><b>4.5</b> ARIMA/SARIMA models</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="outlier-detection.html"><a href="outlier-detection.html"><i class="fa fa-check"></i><b>5</b> Outlier Detection</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="outlier-detection.html"><a href="outlier-detection.html#outlier-definition"><i class="fa fa-check"></i><b>5.1</b> Outlier definition</a></li>
+<li class="chapter" data-level="5.2" data-path="outlier-detection.html"><a href="outlier-detection.html#methods"><i class="fa fa-check"></i><b>5.2</b> Methods</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="outlier-detection.html"><a href="outlier-detection.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.2.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="5.2.2" data-path="outlier-detection.html"><a href="outlier-detection.html#statistical-tests"><i class="fa fa-check"></i><b>5.2.2</b> Statistical tests</a></li>
+<li class="chapter" data-level="5.2.3" data-path="outlier-detection.html"><a href="outlier-detection.html#proximity-based"><i class="fa fa-check"></i><b>5.2.3</b> Proximity-based</a></li>
+<li class="chapter" data-level="5.2.4" data-path="outlier-detection.html"><a href="outlier-detection.html#machine-learning-models"><i class="fa fa-check"></i><b>5.2.4</b> Machine learning models</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="outlier-detection.html"><a href="outlier-detection.html#references-2"><i class="fa fa-check"></i><b>5.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html"><i class="fa fa-check"></i><b>6</b> Outlier detection in Time series</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#definition-1"><i class="fa fa-check"></i><b>6.1.1</b> Definition</a></li>
+<li class="chapter" data-level="6.1.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#taxonomy"><i class="fa fa-check"></i><b>6.1.2</b> Taxonomy</a></li>
+<li class="chapter" data-level="6.1.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#globa-vs-local-anomalies"><i class="fa fa-check"></i><b>6.1.3</b> Globa VS local anomalies</a></li>
+<li class="chapter" data-level="6.1.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#univariate-vs-multivariate"><i class="fa fa-check"></i><b>6.1.4</b> Univariate VS Multivariate</a></li>
+<li class="chapter" data-level="6.1.5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#evaluation-metrics"><i class="fa fa-check"></i><b>6.1.5</b> Evaluation metrics</a></li>
+<li class="chapter" data-level="6.1.6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#types-of-anomalies-in-time-series"><i class="fa fa-check"></i><b>6.1.6</b> Types of anomalies in time series</a></li>
+<li class="chapter" data-level="6.1.7" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#methodological-approaches"><i class="fa fa-check"></i><b>6.1.7</b> Methodological Approaches</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#statistical-based-approaches"><i class="fa fa-check"></i><b>6.2</b> Statistical-based approaches</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#stl-decomposition"><i class="fa fa-check"></i><b>6.2.1</b> STL decomposition</a></li>
+<li class="chapter" data-level="6.2.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#generalized-esd-test-for-outliers"><i class="fa fa-check"></i><b>6.2.2</b> Generalized ESD Test for Outliers</a></li>
+<li class="chapter" data-level="6.2.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#extreme-studentized-deviate-technique-esd"><i class="fa fa-check"></i><b>6.2.3</b> Extreme Studentized Deviate Technique (ESD)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#forecasting-based-approaches"><i class="fa fa-check"></i><b>6.3</b> Forecasting-based approaches</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#moving-average-method"><i class="fa fa-check"></i><b>6.3.1</b> Moving Average Method</a></li>
+<li class="chapter" data-level="6.3.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#arma"><i class="fa fa-check"></i><b>6.3.2</b> ARMA</a></li>
+<li class="chapter" data-level="6.3.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#prophet"><i class="fa fa-check"></i><b>6.3.3</b> Prophet</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#neural-network-based-approaches"><i class="fa fa-check"></i><b>6.4</b> Neural Network Based Approaches</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#autoencoder"><i class="fa fa-check"></i><b>6.4.1</b> Autoencoder</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#clustering-based-approaches"><i class="fa fa-check"></i><b>6.5</b> Clustering Based Approaches</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#kmeans"><i class="fa fa-check"></i><b>6.5.1</b> Kmeans</a></li>
+<li class="chapter" data-level="6.5.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#gaussina-mixture-model-gmm"><i class="fa fa-check"></i><b>6.5.2</b> Gaussina Mixture Model (GMM)</a></li>
+<li class="chapter" data-level="6.5.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#dbscan-1"><i class="fa fa-check"></i><b>6.5.3</b> DBSCAN</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#proximity-based-approaches"><i class="fa fa-check"></i><b>6.6</b> Proximity Based Approaches</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>6.6.1</b> K-Nearest neighbor:</a></li>
+<li class="chapter" data-level="6.6.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#local-outlier-factor-lof"><i class="fa fa-check"></i><b>6.6.2</b> Local Outlier Factor (LOF)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#tree-based-approaches"><i class="fa fa-check"></i><b>6.7</b> Tree Based Approaches</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#isolation-forest"><i class="fa fa-check"></i><b>6.7.1</b> Isolation Forest</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#dimension-reduction-based-approaches"><i class="fa fa-check"></i><b>6.8</b> Dimension Reduction Based Approaches</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#principal-component-analyses-pca"><i class="fa fa-check"></i><b>6.8.1</b> Principal Component Analyses (PCA)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#references-3"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references-4.html"><a href="references-4.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Time Series with R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="arma-time-serie-modeling" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> ARMA Time serie modeling</h1>
+<p>ARMA (Auto-Regressive Moving Average) models are commonly used in time series modeling. Auto-Regressive and Moving-Average models are not applicable on non-stationary series.</p>
+<div id="auto-regressive-time-series-model" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Auto-Regressive Time Series model</h2>
+<p>The Auto-Regressive (AR) model can be interpreted as a simple linear regression where each observation <span class="math inline">\(x(t)\)</span> is regressed on the previous observation <span class="math inline">\(x(t-1)\)</span>.
+It can be formulated with the following equation known as AR(1) formulation: <span class="math inline">\(x(t) = \alpha \times x(t-1) + error(t)\)</span>. The equation denotes that the current instance is dependant on the previous one with an alpha coefficient which we seek to minimize the error function. If <span class="math inline">\(\alpha = 0\)</span> then <span class="math inline">\(x(t)\)</span> is simply white noise. Large <span class="math inline">\(\alpha\)</span> show a high correlation and negative values of <span class="math inline">\(\alpha\)</span> result in oscillatory time series.</p>
+<ul>
+<li><strong>Fitting an AR model</strong>: We can use the command <code>arima()</code> in order to fit an AR model to a time series. An AR model is an ARIMA model with order (1,0,0).</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="arma-time-serie-modeling.html#cb48-1" aria-hidden="true"></a><span class="co">#Fitting the AR Model to the time series</span></span>
+<span id="cb48-2"><a href="arma-time-serie-modeling.html#cb48-2" aria-hidden="true"></a>AR &lt;-<span class="st"> </span><span class="kw">arima</span>(AirPassengers, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb48-3"><a href="arma-time-serie-modeling.html#cb48-3" aria-hidden="true"></a><span class="kw">print</span>(AR)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## arima(x = AirPassengers, order = c(1, 0, 0))
+## 
+## Coefficients:
+##          ar1  intercept
+##       0.9646   278.4649
+## s.e.  0.0214    67.1141
+## 
+## sigma^2 estimated as 1119:  log likelihood = -711.09,  aic = 1428.18</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="arma-time-serie-modeling.html#cb50-1" aria-hidden="true"></a><span class="co">#plotting the series along with the fitted values</span></span>
+<span id="cb50-2"><a href="arma-time-serie-modeling.html#cb50-2" aria-hidden="true"></a><span class="kw">ts.plot</span>(AirPassengers)</span>
+<span id="cb50-3"><a href="arma-time-serie-modeling.html#cb50-3" aria-hidden="true"></a>AR_fit &lt;-<span class="st"> </span>AirPassengers <span class="op">-</span><span class="st"> </span><span class="kw">residuals</span>(AR)</span>
+<span id="cb50-4"><a href="arma-time-serie-modeling.html#cb50-4" aria-hidden="true"></a><span class="kw">points</span>(AR_fit, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="TimeSerieAnalysis-Book_files/figure-html/AirPassengers%20AR_fit%20plot-1.png" width="672" /></p>
+<ul>
+<li><strong>Forecasting using an AR model</strong>: We can make forecasts using the estimated AR model using the command <code>predict</code> which gives us the predicted value (<code>$pred</code>) and standard error of the forecast (<code>$se</code>).</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="arma-time-serie-modeling.html#cb51-1" aria-hidden="true"></a><span class="co">#Using predict() to make a 1-step forecast</span></span>
+<span id="cb51-2"><a href="arma-time-serie-modeling.html#cb51-2" aria-hidden="true"></a>predict_AR &lt;-<span class="st"> </span><span class="kw">predict</span>(AR)</span>
+<span id="cb51-3"><a href="arma-time-serie-modeling.html#cb51-3" aria-hidden="true"></a>predict_AR</span></code></pre></div>
+<pre><code>## $pred
+##           Jan
+## 1961 426.5698
+## 
+## $se
+##           Jan
+## 1961 33.44577</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="arma-time-serie-modeling.html#cb53-1" aria-hidden="true"></a><span class="co">#Obtaining the 1-step forecast using $pred[1]</span></span>
+<span id="cb53-2"><a href="arma-time-serie-modeling.html#cb53-2" aria-hidden="true"></a>predict_AR<span class="op">$</span>pred[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 426.5698</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="arma-time-serie-modeling.html#cb55-1" aria-hidden="true"></a><span class="co"># predicting 10 step forecats</span></span>
+<span id="cb55-2"><a href="arma-time-serie-modeling.html#cb55-2" aria-hidden="true"></a><span class="kw">predict</span>(AR, <span class="dt">n.ahead =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## $pred
+##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
+## 1961 426.5698 421.3316 416.2787 411.4045 406.7027 402.1672 397.7921 393.5717
+##           Sep      Oct
+## 1961 389.5006 385.5735
+## 
+## $se
+##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
+## 1961 33.44577 46.47055 55.92922 63.47710 69.77093 75.15550 79.84042 83.96535
+##           Sep      Oct
+## 1961 87.62943 90.90636</code></pre>
+<p>We can visualize the forecasts with 95% prediction intervals</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="arma-time-serie-modeling.html#cb57-1" aria-hidden="true"></a><span class="kw">ts.plot</span>(AirPassengers, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1949</span>, <span class="dv">1961</span>))</span>
+<span id="cb57-2"><a href="arma-time-serie-modeling.html#cb57-2" aria-hidden="true"></a>AR_forecast &lt;-<span class="st"> </span><span class="kw">predict</span>(AR, <span class="dt">n.ahead =</span> <span class="dv">10</span>)<span class="op">$</span>pred</span>
+<span id="cb57-3"><a href="arma-time-serie-modeling.html#cb57-3" aria-hidden="true"></a>AR_forecast_se &lt;-<span class="st"> </span><span class="kw">predict</span>(AR, <span class="dt">n.ahead =</span> <span class="dv">10</span>)<span class="op">$</span>se</span>
+<span id="cb57-4"><a href="arma-time-serie-modeling.html#cb57-4" aria-hidden="true"></a><span class="kw">points</span>(AR_forecast, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb57-5"><a href="arma-time-serie-modeling.html#cb57-5" aria-hidden="true"></a><span class="kw">points</span>(AR_forecast <span class="op">-</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>AR_forecast_se, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb57-6"><a href="arma-time-serie-modeling.html#cb57-6" aria-hidden="true"></a><span class="kw">points</span>(AR_forecast <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>AR_forecast_se, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="TimeSerieAnalysis-Book_files/figure-html/predict%20plot-1.png" width="672" /></p>
+</div>
+<div id="moving-average-time-series-model" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Moving Average Time Series Model</h2>
+<p>The Moving Average (MA) model hac a regression llike form, but each observation is regressed on the previous innovation, which is not actually observed. A weighted sum of previous and current noise is called Moving Average (MA) model. It can be interpreted as: each observation <span class="math inline">\(x(t)\)</span> is regressed on previous noise <span class="math inline">\(error(t-1)\)</span>.
+It can be formulated with the following equation known as MA(1) formulation: <span class="math inline">\(x(t) = \beta \times error(t-1) + error(t)\)</span>. The <span class="math inline">\(\beta\)</span> is a coefficient which we seek to mimize the error function.</p>
+<ul>
+<li><strong>Fitting an AR model</strong>: We can use the command <code>arima()</code> in order to fit a MA model to a time series. A MA model is an ARIMA model with order (0,0,1).</li>
+</ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="arma-time-serie-modeling.html#cb58-1" aria-hidden="true"></a><span class="co">#Fitting the MA model to AirPassengers</span></span>
+<span id="cb58-2"><a href="arma-time-serie-modeling.html#cb58-2" aria-hidden="true"></a>MA &lt;-<span class="st"> </span><span class="kw">arima</span>(AirPassengers, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb58-3"><a href="arma-time-serie-modeling.html#cb58-3" aria-hidden="true"></a><span class="kw">print</span>(MA)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## arima(x = AirPassengers, order = c(0, 0, 1))
+## 
+## Coefficients:
+##          ma1  intercept
+##       0.9642   280.6464
+## s.e.  0.0214    10.5788
+## 
+## sigma^2 estimated as 4205:  log likelihood = -806.43,  aic = 1618.86</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="arma-time-serie-modeling.html#cb60-1" aria-hidden="true"></a><span class="co">#plotting the series along with the MA fitted values</span></span>
+<span id="cb60-2"><a href="arma-time-serie-modeling.html#cb60-2" aria-hidden="true"></a><span class="kw">ts.plot</span>(AirPassengers)</span>
+<span id="cb60-3"><a href="arma-time-serie-modeling.html#cb60-3" aria-hidden="true"></a>MA_fit &lt;-<span class="st"> </span>AirPassengers <span class="op">-</span><span class="st"> </span><span class="kw">resid</span>(MA)</span>
+<span id="cb60-4"><a href="arma-time-serie-modeling.html#cb60-4" aria-hidden="true"></a><span class="kw">points</span>(MA_fit, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="TimeSerieAnalysis-Book_files/figure-html/AirPassengers%20MA%20plot-1.png" width="672" /></p>
+<ul>
+<li><strong>Forecasting using an AR model</strong>: We can make forecasts using the estimated AR model using the command <code>predict</code> which gives us the predicted value (<code>$pred</code>) and standard error of the forecast (<code>$se</code>).</li>
+</ul>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="arma-time-serie-modeling.html#cb61-1" aria-hidden="true"></a><span class="co"># Making a 1-step through 10-step forecast based on MA</span></span>
+<span id="cb61-2"><a href="arma-time-serie-modeling.html#cb61-2" aria-hidden="true"></a><span class="kw">predict</span>(MA,<span class="dt">n.ahead=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## $pred
+##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
+## 1961 425.1049 280.6464 280.6464 280.6464 280.6464 280.6464 280.6464 280.6464
+##           Sep      Oct
+## 1961 280.6464 280.6464
+## 
+## $se
+##           Jan      Feb      Mar      Apr      May      Jun      Jul      Aug
+## 1961 64.84895 90.08403 90.08403 90.08403 90.08403 90.08403 90.08403 90.08403
+##           Sep      Oct
+## 1961 90.08403 90.08403</code></pre>
+<p>We can visualize the forecasts with 95% prediction intervals</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="arma-time-serie-modeling.html#cb63-1" aria-hidden="true"></a><span class="co">#Plotting the AIrPAssenger series plus the forecast and 95% prediction intervals</span></span>
+<span id="cb63-2"><a href="arma-time-serie-modeling.html#cb63-2" aria-hidden="true"></a><span class="kw">ts.plot</span>(AirPassengers, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">1949</span>, <span class="dv">1961</span>))</span>
+<span id="cb63-3"><a href="arma-time-serie-modeling.html#cb63-3" aria-hidden="true"></a>MA_forecasts &lt;-<span class="st"> </span><span class="kw">predict</span>(MA, <span class="dt">n.ahead =</span> <span class="dv">10</span>)<span class="op">$</span>pred</span>
+<span id="cb63-4"><a href="arma-time-serie-modeling.html#cb63-4" aria-hidden="true"></a>MA_forecast_se &lt;-<span class="st"> </span><span class="kw">predict</span>(MA, <span class="dt">n.ahead =</span> <span class="dv">10</span>)<span class="op">$</span>se</span>
+<span id="cb63-5"><a href="arma-time-serie-modeling.html#cb63-5" aria-hidden="true"></a><span class="kw">points</span>(MA_forecasts, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb63-6"><a href="arma-time-serie-modeling.html#cb63-6" aria-hidden="true"></a><span class="kw">points</span>(MA_forecasts <span class="op">-</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>MA_forecast_se, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb63-7"><a href="arma-time-serie-modeling.html#cb63-7" aria-hidden="true"></a><span class="kw">points</span>(MA_forecasts <span class="op">+</span><span class="st"> </span><span class="dv">2</span><span class="op">*</span>MA_forecast_se, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="TimeSerieAnalysis-Book_files/figure-html/AirPassengers%20MA%20predictplot-1.png" width="672" /></p>
+</div>
+<div id="model-selection-ar-or-ma" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Model selection: AR or MA</h2>
+<p>We can you godness of fit in order to choose the more appropriate model. Two metrics are commonly used in time series model: Akaike Information Criterion (AIC) and Bayesian Information Criterion (BIC). A lower value indicates a better fitting model. These two indicators penalize models with more estimated parameters in order to avoid overfitting.</p>
+<ul>
+<li><strong>Akaike Information Criterion (AIC)</strong>:</li>
+<li><strong>Bayesian Information Criterion (BIC)</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="arma-time-serie-modeling.html#cb64-1" aria-hidden="true"></a><span class="co"># Compute AIC of AR model</span></span>
+<span id="cb64-2"><a href="arma-time-serie-modeling.html#cb64-2" aria-hidden="true"></a><span class="kw">AIC</span>(AR)</span></code></pre></div>
+<pre><code>## [1] 1428.179</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="arma-time-serie-modeling.html#cb66-1" aria-hidden="true"></a><span class="co"># Compute AIC of MA model</span></span>
+<span id="cb66-2"><a href="arma-time-serie-modeling.html#cb66-2" aria-hidden="true"></a><span class="kw">AIC</span>(MA)</span></code></pre></div>
+<pre><code>## [1] 1618.863</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="arma-time-serie-modeling.html#cb68-1" aria-hidden="true"></a><span class="co"># Compute BIC of AR model</span></span>
+<span id="cb68-2"><a href="arma-time-serie-modeling.html#cb68-2" aria-hidden="true"></a><span class="kw">BIC</span>(AR)</span></code></pre></div>
+<pre><code>## [1] 1437.089</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="arma-time-serie-modeling.html#cb70-1" aria-hidden="true"></a><span class="co"># Compute BIC of MA model</span></span>
+<span id="cb70-2"><a href="arma-time-serie-modeling.html#cb70-2" aria-hidden="true"></a><span class="kw">BIC</span>(MA)</span></code></pre></div>
+<pre><code>## [1] 1627.772</code></pre>
+<p>Based on the results, we can select the AR model since it gives lower value of AIC and BIC.</p>
+</div>
+<div id="references-1" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> References</h2>
+<ul>
+<li><a href="https://rpubs.com/JSHAH/481706" class="uri">https://rpubs.com/JSHAH/481706</a></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="time-series-forecasting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["TimeSerieAnalysis-Book.pdf", "TimeSerieAnalysis-Book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
