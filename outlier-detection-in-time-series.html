@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Outlier detection in Time series | Time Series with R</title>
+  <title>Chapter 5 Outlier detection in Time series | Time Series with R</title>
   <meta name="description" content="This is a tutorial of time series analysis with R." />
   <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Outlier detection in Time series | Time Series with R" />
+  <meta property="og:title" content="Chapter 5 Outlier detection in Time series | Time Series with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Outlier detection in Time series | Time Series with R" />
+  <meta name="twitter:title" content="Chapter 5 Outlier detection in Time series | Time Series with R" />
   
   <meta name="twitter:description" content="This is a tutorial of time series analysis with R." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Saif Shabou" />
 
 
-<meta name="date" content="2020-12-09" />
+<meta name="date" content="2020-12-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="outlier-detection.html"/>
-<link rel="next" href="references-4.html"/>
+<link rel="prev" href="time-series-forecasting.html"/>
+<link rel="next" href="references-3.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -130,124 +130,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Tie Series Analysis with R</a></li>
+<li><a href="./">Time Series Analysis with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="time-series-basics.html"><a href="time-series-basics.html"><i class="fa fa-check"></i><b>2</b> Time series basics</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-a-time-series"><i class="fa fa-check"></i><b>2.1</b> What is a Time Series</a>
+<li class="chapter" data-level="2.1" data-path="time-series-basics.html"><a href="time-series-basics.html#what-is-a-time-series"><i class="fa fa-check"></i><b>2.1</b> What is a Time Series</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="introduction.html"><a href="introduction.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
+<li class="chapter" data-level="2.1.1" data-path="time-series-basics.html"><a href="time-series-basics.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#time-series-exploration"><i class="fa fa-check"></i><b>2.2</b> Time Series exploration</a>
+<li class="chapter" data-level="2.2" data-path="time-series-basics.html"><a href="time-series-basics.html#time-series-exploration"><i class="fa fa-check"></i><b>2.2</b> Time Series exploration</a></li>
+<li class="chapter" data-level="2.3" data-path="time-series-basics.html"><a href="time-series-basics.html#time-series-patterns"><i class="fa fa-check"></i><b>2.3</b> Time Series patterns</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#understanding-your-time-series"><i class="fa fa-check"></i><b>2.2.1</b> Understanding your Time Series</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#what-is-a-stationary-time-series"><i class="fa fa-check"></i><b>2.2.2</b> What is a Stationary Time Series ?</a></li>
-<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#how-to-extract-the-trend-seasonality-and-error"><i class="fa fa-check"></i><b>2.2.3</b> How to extract the trend, seasonality and error?</a></li>
+<li class="chapter" data-level="2.3.1" data-path="time-series-basics.html"><a href="time-series-basics.html#how-to-extract-the-trend-seasonality-and-error"><i class="fa fa-check"></i><b>2.3.1</b> How to extract the trend, seasonality and error?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="time-series-basics.html"><a href="time-series-basics.html#how-to-de-trend-a-time-series"><i class="fa fa-check"></i><b>2.3.2</b> How to de-trend a time series ?</a></li>
+<li class="chapter" data-level="2.3.3" data-path="time-series-basics.html"><a href="time-series-basics.html#how-to-de-seasonalize-a-time-series-in-r"><i class="fa fa-check"></i><b>2.3.3</b> How to de-seasonalize a time series in R?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#time-series-patterns"><i class="fa fa-check"></i><b>2.3</b> Time Series patterns</a>
+<li class="chapter" data-level="2.4" data-path="time-series-basics.html"><a href="time-series-basics.html#stationarity-in-time-series"><i class="fa fa-check"></i><b>2.4</b> Stationarity in Time Series</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#how-to-de-trend-a-time-series"><i class="fa fa-check"></i><b>2.3.1</b> How to de-trend a time series ?</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#how-to-de-seasonalize-a-time-series-in-r"><i class="fa fa-check"></i><b>2.3.2</b> How to de-seasonalize a time series in R?</a></li>
+<li class="chapter" data-level="2.4.1" data-path="time-series-basics.html"><a href="time-series-basics.html#elementary-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Elementary statistics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="time-series-basics.html"><a href="time-series-basics.html#stationarity-definition"><i class="fa fa-check"></i><b>2.4.2</b> Stationarity definition</a></li>
+<li class="chapter" data-level="2.4.3" data-path="time-series-basics.html"><a href="time-series-basics.html#stationarity-test"><i class="fa fa-check"></i><b>2.4.3</b> Stationarity test</a></li>
+<li class="chapter" data-level="2.4.4" data-path="time-series-basics.html"><a href="time-series-basics.html#make-a-time-series-stationary"><i class="fa fa-check"></i><b>2.4.4</b> Make a time series stationary</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#auto-correlation-in-time-series-analysis"><i class="fa fa-check"></i><b>2.4</b> Auto-correlation in Time Series Analysis</a>
+<li class="chapter" data-level="2.5" data-path="time-series-basics.html"><a href="time-series-basics.html#auto-correlation"><i class="fa fa-check"></i><b>2.5</b> Auto-correlation</a></li>
+<li class="chapter" data-level="2.6" data-path="time-series-basics.html"><a href="time-series-basics.html#references"><i class="fa fa-check"></i><b>2.6</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="arma-time-series-modeling.html"><a href="arma-time-series-modeling.html"><i class="fa fa-check"></i><b>3</b> ARMA Time Series modeling</a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#elementary-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Elementary statistics</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#stationarity-in-time-series-analysis"><i class="fa fa-check"></i><b>2.4.2</b> Stationarity in time series analysis</a></li>
-<li class="chapter" data-level="2.4.3" data-path="introduction.html"><a href="introduction.html#auto-correlation"><i class="fa fa-check"></i><b>2.4.3</b> Auto-correlation</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#references"><i class="fa fa-check"></i><b>2.5</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html"><i class="fa fa-check"></i><b>3</b> ARMA Time serie modeling</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#auto-regressive-time-series-model"><i class="fa fa-check"></i><b>3.1</b> Auto-Regressive Time Series model</a></li>
-<li class="chapter" data-level="3.2" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#moving-average-time-series-model"><i class="fa fa-check"></i><b>3.2</b> Moving Average Time Series Model</a></li>
-<li class="chapter" data-level="3.3" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#model-selection-ar-or-ma"><i class="fa fa-check"></i><b>3.3</b> Model selection: AR or MA</a></li>
-<li class="chapter" data-level="3.4" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html#references-1"><i class="fa fa-check"></i><b>3.4</b> References</a></li>
+<li class="chapter" data-level="3.1" data-path="arma-time-series-modeling.html"><a href="arma-time-series-modeling.html#auto-regressive-time-series-model"><i class="fa fa-check"></i><b>3.1</b> Auto-Regressive Time Series model</a></li>
+<li class="chapter" data-level="3.2" data-path="arma-time-series-modeling.html"><a href="arma-time-series-modeling.html#moving-average-time-series-model"><i class="fa fa-check"></i><b>3.2</b> Moving Average Time Series Model</a></li>
+<li class="chapter" data-level="3.3" data-path="arma-time-series-modeling.html"><a href="arma-time-series-modeling.html#model-selection-ar-or-ma"><i class="fa fa-check"></i><b>3.3</b> Model selection: AR or MA</a></li>
+<li class="chapter" data-level="3.4" data-path="arma-time-series-modeling.html"><a href="arma-time-series-modeling.html#references-1"><i class="fa fa-check"></i><b>3.4</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html"><i class="fa fa-check"></i><b>4</b> Time Series Forecasting</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#performance-metrics"><i class="fa fa-check"></i><b>4.2</b> Performance metrics</a>
+<li class="chapter" data-level="4.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#understanding-the-context-of-forecasting"><i class="fa fa-check"></i><b>4.1</b> Understanding the context of forecasting</a></li>
+<li class="chapter" data-level="4.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#data-preparation"><i class="fa fa-check"></i><b>4.2</b> Data preparation</a></li>
+<li class="chapter" data-level="4.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#case-study"><i class="fa fa-check"></i><b>4.3</b> Case study</a></li>
+<li class="chapter" data-level="4.4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#performance-metrics"><i class="fa fa-check"></i><b>4.4</b> Performance metrics</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#forecast-errors"><i class="fa fa-check"></i><b>4.2.1</b> Forecast errors</a></li>
-<li class="chapter" data-level="4.2.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#r-squared"><i class="fa fa-check"></i><b>4.2.2</b> R-squared</a></li>
-<li class="chapter" data-level="4.2.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#mean-absolute-error-mse"><i class="fa fa-check"></i><b>4.2.3</b> Mean Absolute Error (MSE)</a></li>
-<li class="chapter" data-level="4.2.4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#median-absolute-error-medae"><i class="fa fa-check"></i><b>4.2.4</b> Median Absolute Error (MedAE)</a></li>
-<li class="chapter" data-level="4.2.5" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#mean-squared-error-mse"><i class="fa fa-check"></i><b>4.2.5</b> Mean Squared Error (MSE)</a></li>
-<li class="chapter" data-level="4.2.6" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#application"><i class="fa fa-check"></i><b>4.2.6</b> Application</a></li>
+<li class="chapter" data-level="4.4.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#forecast-errors"><i class="fa fa-check"></i><b>4.4.1</b> Forecast errors</a></li>
+<li class="chapter" data-level="4.4.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#r-squared"><i class="fa fa-check"></i><b>4.4.2</b> R-squared</a></li>
+<li class="chapter" data-level="4.4.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#mean-absolute-error-mse"><i class="fa fa-check"></i><b>4.4.3</b> Mean Absolute Error (MSE)</a></li>
+<li class="chapter" data-level="4.4.4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#median-absolute-error-medae"><i class="fa fa-check"></i><b>4.4.4</b> Median Absolute Error (MedAE)</a></li>
+<li class="chapter" data-level="4.4.5" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#mean-squared-error-mse"><i class="fa fa-check"></i><b>4.4.5</b> Mean Squared Error (MSE)</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#naive-methods"><i class="fa fa-check"></i><b>4.3</b> Naive methods</a></li>
-<li class="chapter" data-level="4.4" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#exponential-smoothing"><i class="fa fa-check"></i><b>4.4</b> Exponential smoothing</a>
+<li class="chapter" data-level="4.5" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#naive-methods"><i class="fa fa-check"></i><b>4.5</b> Naive methods</a></li>
+<li class="chapter" data-level="4.6" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#exponential-smoothing"><i class="fa fa-check"></i><b>4.6</b> Exponential smoothing</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#state-space-models"><i class="fa fa-check"></i><b>4.4.1</b> State Space Models</a></li>
-<li class="chapter" data-level="4.4.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#double-seasonal-holt-winters"><i class="fa fa-check"></i><b>4.4.2</b> Double seasonal Holt-Winters</a></li>
+<li class="chapter" data-level="4.6.1" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#state-space-models"><i class="fa fa-check"></i><b>4.6.1</b> State Space Models</a></li>
+<li class="chapter" data-level="4.6.2" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#double-seasonal-holt-winters"><i class="fa fa-check"></i><b>4.6.2</b> Double seasonal Holt-Winters</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#arimasarima-models"><i class="fa fa-check"></i><b>4.5</b> ARIMA/SARIMA models</a></li>
+<li class="chapter" data-level="4.7" data-path="time-series-forecasting.html"><a href="time-series-forecasting.html#arimasarima-models"><i class="fa fa-check"></i><b>4.7</b> ARIMA/SARIMA models</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="outlier-detection.html"><a href="outlier-detection.html"><i class="fa fa-check"></i><b>5</b> Outlier Detection</a>
+<li class="chapter" data-level="5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html"><i class="fa fa-check"></i><b>5</b> Outlier detection in Time series</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="outlier-detection.html"><a href="outlier-detection.html#outlier-definition"><i class="fa fa-check"></i><b>5.1</b> Outlier definition</a></li>
-<li class="chapter" data-level="5.2" data-path="outlier-detection.html"><a href="outlier-detection.html#methods"><i class="fa fa-check"></i><b>5.2</b> Methods</a>
+<li class="chapter" data-level="5.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="outlier-detection.html"><a href="outlier-detection.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.2.1</b> Descriptive statistics</a></li>
-<li class="chapter" data-level="5.2.2" data-path="outlier-detection.html"><a href="outlier-detection.html#statistical-tests"><i class="fa fa-check"></i><b>5.2.2</b> Statistical tests</a></li>
-<li class="chapter" data-level="5.2.3" data-path="outlier-detection.html"><a href="outlier-detection.html#proximity-based"><i class="fa fa-check"></i><b>5.2.3</b> Proximity-based</a></li>
-<li class="chapter" data-level="5.2.4" data-path="outlier-detection.html"><a href="outlier-detection.html#machine-learning-models"><i class="fa fa-check"></i><b>5.2.4</b> Machine learning models</a></li>
+<li class="chapter" data-level="5.1.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#definition-1"><i class="fa fa-check"></i><b>5.1.1</b> Definition</a></li>
+<li class="chapter" data-level="5.1.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#taxonomy"><i class="fa fa-check"></i><b>5.1.2</b> Taxonomy</a></li>
+<li class="chapter" data-level="5.1.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#types-of-anomalies-in-time-series"><i class="fa fa-check"></i><b>5.1.3</b> Types of anomalies in time series</a></li>
+<li class="chapter" data-level="5.1.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#methodological-approaches"><i class="fa fa-check"></i><b>5.1.4</b> Methodological Approaches</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="outlier-detection.html"><a href="outlier-detection.html#references-2"><i class="fa fa-check"></i><b>5.3</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html"><i class="fa fa-check"></i><b>6</b> Outlier detection in Time series</a>
+<li class="chapter" data-level="5.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#statistical-based-approaches"><i class="fa fa-check"></i><b>5.2</b> Statistical-based approaches</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a>
+<li class="chapter" data-level="5.2.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#descriptive-statistics"><i class="fa fa-check"></i><b>5.2.1</b> Descriptive statistics</a></li>
+<li class="chapter" data-level="5.2.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#statistical-tests"><i class="fa fa-check"></i><b>5.2.2</b> Statistical tests</a></li>
+<li class="chapter" data-level="5.2.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#stl-decomposition"><i class="fa fa-check"></i><b>5.2.3</b> STL decomposition</a></li>
+<li class="chapter" data-level="5.2.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#generalized-esd-test-for-outliers"><i class="fa fa-check"></i><b>5.2.4</b> Generalized ESD Test for Outliers</a></li>
+<li class="chapter" data-level="5.2.5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#extreme-studentized-deviate-technique-esd"><i class="fa fa-check"></i><b>5.2.5</b> Extreme Studentized Deviate Technique (ESD)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#forecasting-based-approaches"><i class="fa fa-check"></i><b>5.3</b> Forecasting-based approaches</a>
 <ul>
-<li class="chapter" data-level="6.1.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#definition-1"><i class="fa fa-check"></i><b>6.1.1</b> Definition</a></li>
-<li class="chapter" data-level="6.1.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#taxonomy"><i class="fa fa-check"></i><b>6.1.2</b> Taxonomy</a></li>
-<li class="chapter" data-level="6.1.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#globa-vs-local-anomalies"><i class="fa fa-check"></i><b>6.1.3</b> Globa VS local anomalies</a></li>
-<li class="chapter" data-level="6.1.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#univariate-vs-multivariate"><i class="fa fa-check"></i><b>6.1.4</b> Univariate VS Multivariate</a></li>
-<li class="chapter" data-level="6.1.5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#evaluation-metrics"><i class="fa fa-check"></i><b>6.1.5</b> Evaluation metrics</a></li>
-<li class="chapter" data-level="6.1.6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#types-of-anomalies-in-time-series"><i class="fa fa-check"></i><b>6.1.6</b> Types of anomalies in time series</a></li>
-<li class="chapter" data-level="6.1.7" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#methodological-approaches"><i class="fa fa-check"></i><b>6.1.7</b> Methodological Approaches</a></li>
+<li class="chapter" data-level="5.3.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#moving-average-method"><i class="fa fa-check"></i><b>5.3.1</b> Moving Average Method</a></li>
+<li class="chapter" data-level="5.3.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#arma"><i class="fa fa-check"></i><b>5.3.2</b> ARMA</a></li>
+<li class="chapter" data-level="5.3.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#prophet"><i class="fa fa-check"></i><b>5.3.3</b> Prophet</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#statistical-based-approaches"><i class="fa fa-check"></i><b>6.2</b> Statistical-based approaches</a>
+<li class="chapter" data-level="5.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#neural-network-based-approaches"><i class="fa fa-check"></i><b>5.4</b> Neural Network Based Approaches</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#stl-decomposition"><i class="fa fa-check"></i><b>6.2.1</b> STL decomposition</a></li>
-<li class="chapter" data-level="6.2.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#generalized-esd-test-for-outliers"><i class="fa fa-check"></i><b>6.2.2</b> Generalized ESD Test for Outliers</a></li>
-<li class="chapter" data-level="6.2.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#extreme-studentized-deviate-technique-esd"><i class="fa fa-check"></i><b>6.2.3</b> Extreme Studentized Deviate Technique (ESD)</a></li>
+<li class="chapter" data-level="5.4.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#autoencoder"><i class="fa fa-check"></i><b>5.4.1</b> Autoencoder</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#forecasting-based-approaches"><i class="fa fa-check"></i><b>6.3</b> Forecasting-based approaches</a>
+<li class="chapter" data-level="5.5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#clustering-based-approaches"><i class="fa fa-check"></i><b>5.5</b> Clustering Based Approaches</a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#moving-average-method"><i class="fa fa-check"></i><b>6.3.1</b> Moving Average Method</a></li>
-<li class="chapter" data-level="6.3.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#arma"><i class="fa fa-check"></i><b>6.3.2</b> ARMA</a></li>
-<li class="chapter" data-level="6.3.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#prophet"><i class="fa fa-check"></i><b>6.3.3</b> Prophet</a></li>
+<li class="chapter" data-level="5.5.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#kmeans"><i class="fa fa-check"></i><b>5.5.1</b> Kmeans</a></li>
+<li class="chapter" data-level="5.5.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#gaussina-mixture-model-gmm"><i class="fa fa-check"></i><b>5.5.2</b> Gaussina Mixture Model (GMM)</a></li>
+<li class="chapter" data-level="5.5.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#dbscan"><i class="fa fa-check"></i><b>5.5.3</b> DBSCAN</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#neural-network-based-approaches"><i class="fa fa-check"></i><b>6.4</b> Neural Network Based Approaches</a>
+<li class="chapter" data-level="5.6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#proximity-based-approaches"><i class="fa fa-check"></i><b>5.6</b> Proximity Based Approaches</a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#autoencoder"><i class="fa fa-check"></i><b>6.4.1</b> Autoencoder</a></li>
+<li class="chapter" data-level="5.6.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>5.6.1</b> K-Nearest neighbor:</a></li>
+<li class="chapter" data-level="5.6.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#local-outlier-factor-lof"><i class="fa fa-check"></i><b>5.6.2</b> Local Outlier Factor (LOF)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#clustering-based-approaches"><i class="fa fa-check"></i><b>6.5</b> Clustering Based Approaches</a>
+<li class="chapter" data-level="5.7" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#tree-based-approaches"><i class="fa fa-check"></i><b>5.7</b> Tree Based Approaches</a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#kmeans"><i class="fa fa-check"></i><b>6.5.1</b> Kmeans</a></li>
-<li class="chapter" data-level="6.5.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#gaussina-mixture-model-gmm"><i class="fa fa-check"></i><b>6.5.2</b> Gaussina Mixture Model (GMM)</a></li>
-<li class="chapter" data-level="6.5.3" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#dbscan-1"><i class="fa fa-check"></i><b>6.5.3</b> DBSCAN</a></li>
+<li class="chapter" data-level="5.7.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#isolation-forest"><i class="fa fa-check"></i><b>5.7.1</b> Isolation Forest</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#proximity-based-approaches"><i class="fa fa-check"></i><b>6.6</b> Proximity Based Approaches</a>
+<li class="chapter" data-level="5.8" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#dimension-reduction-based-approaches"><i class="fa fa-check"></i><b>5.8</b> Dimension Reduction Based Approaches</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#k-nearest-neighbor"><i class="fa fa-check"></i><b>6.6.1</b> K-Nearest neighbor:</a></li>
-<li class="chapter" data-level="6.6.2" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#local-outlier-factor-lof"><i class="fa fa-check"></i><b>6.6.2</b> Local Outlier Factor (LOF)</a></li>
+<li class="chapter" data-level="5.8.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#principal-component-analyses-pca"><i class="fa fa-check"></i><b>5.8.1</b> Principal Component Analyses (PCA)</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#tree-based-approaches"><i class="fa fa-check"></i><b>6.7</b> Tree Based Approaches</a>
-<ul>
-<li class="chapter" data-level="6.7.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#isolation-forest"><i class="fa fa-check"></i><b>6.7.1</b> Isolation Forest</a></li>
+<li class="chapter" data-level="5.9" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#references-2"><i class="fa fa-check"></i><b>5.9</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#dimension-reduction-based-approaches"><i class="fa fa-check"></i><b>6.8</b> Dimension Reduction Based Approaches</a>
-<ul>
-<li class="chapter" data-level="6.8.1" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#principal-component-analyses-pca"><i class="fa fa-check"></i><b>6.8.1</b> Principal Component Analyses (PCA)</a></li>
-</ul></li>
-<li class="chapter" data-level="6.9" data-path="outlier-detection-in-time-series.html"><a href="outlier-detection-in-time-series.html#references-3"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references-4.html"><a href="references-4.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references-3.html"><a href="references-3.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -268,28 +254,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="outlier-detection-in-time-series" class="section level1" number="6">
-<h1><span class="header-section-number">Chapter 6</span> Outlier detection in Time series</h1>
-<div id="introduction-2" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Introduction</h2>
-<div id="definition-1" class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Definition</h3>
-<p>From a classical point of view, a widely used deinition for the concept of <em>outier</em> has been provided by Hawkins: “An observation which deviates so much from other observations as to arouse suspicions that it was
-generated by a different mechanism.”.</p>
+<div id="outlier-detection-in-time-series" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Outlier detection in Time series</h1>
+<div id="introduction-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<div id="definition-1" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Definition</h3>
+<p>An <strong>outlier</strong> ia a value or an observation <strong>that is distant from other observations</strong>, a data point that differ significantly from other data points. A widely used deinition for the concept of <em>outier</em> has been provided by Hawkins: <em>“An observation which deviates so much from other observations as to arouse suspicions that it wasgenerated by a different mechanism.”</em>.
+It sometimes makes sense to fromally distinguish two classes of outliers: Extreme values and mistakes.</p>
+<p>Virtually all outlier detection algorithms create <strong>a model of the normal patterns</strong> in the data, and then compute an outlier score of a given data point on the basis of the <strong>deviations from these patterns</strong>. The selected model make different assumptions about the “normal” behavior of the data. The outlier score of a data point is then computed by evaluating <strong>the quality of the fit between the data points and the model</strong>.
+In practice, the choice of the model is often dictated by the analyst‘s understanding of the kinds of deviations relevant to an application.</p>
 </div>
-<div id="taxonomy" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Taxonomy</h3>
+<div id="taxonomy" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Taxonomy</h3>
 <p>Outlier detection techniques in time series data vary depending on the input data, the outlier type , and the nature of the method.</p>
+<div id="input-data-univariate-vs-multivariate" class="section level4" number="5.1.2.1">
+<h4><span class="header-section-number">5.1.2.1</span> Input data: Univariate vs Multivariate</h4>
+<p>Outlier detection methods may differ depending on the charcteristics of time series data: Univariate time series VS Mutivariate time series. A univariate detection method only considers a single time-dependent variable, whereas a multivariate detection method is able to simultaneously work with more than one time-dependent variable</p>
+</div>
+<div id="outlier-type" class="section level4" number="5.1.2.2">
+<h4><span class="header-section-number">5.1.2.2</span> Outlier type</h4>
+<p>Outlier detection methods may differ depending on the type pf ouliers:</p>
 <ul>
-<li><strong>Input data:</strong>
+<li><strong>Point outlier</strong>: A point outlier is a datum that behaves unusually in a specific time instant when compared either to the other values in the time series (global outlier) or to its neighboring points (local outlier).</li>
+<li><strong>Subsequences</strong>: This term refers to consecutive points in time whose joint behavior is unusual, although
+each observation individually is not necessarily a point outlier</li>
+<li><strong>Time Series</strong>: Entire time series can also be outliers, but they can only be detected when the input data is a multivariate time series.</li>
+</ul>
+</div>
+<div id="detection-method" class="section level4" number="5.1.2.3">
+<h4><span class="header-section-number">5.1.2.3</span> Detection method</h4>
 <ul>
-<li><strong>Univariate time series</strong></li>
-<li><strong>Mutivariate time series</strong></li>
-</ul></li>
-<li><strong>Outlier type</strong>
-<ul>
-<li><strong>Point</strong>: s. A point outlier is a datum that behaves unusually in a specific time instant when compared either to the other values in the time series (global outlier) or to its neighboring points (local outlier).
--<strong>Model-based</strong>: The most popular and intuitive definition for the concept of point outlier is a point that significantly deviates from its expected value. Therefore, given a univariate time series, a point at time t can be declared an outlier if the distance to its expected value is higher than a predefined threshold. If <span class="math inline">\(\hat{x}_t\)</span> is obtained using previous and subsequent observations to <span class="math inline">\(x_t\)</span> (past, current, and future data), then the technique is within the estimation model-based methods. In contrast, if <span class="math inline">\(\hat{x}_t\)</span> is obtained relying only on previous observations to <span class="math inline">\(x_t\)</span> (past data), then the technique is within the prediction model-based methods.
+<li><p><strong>Model-based</strong>: The most popular and intuitive definition for the concept of point outlier is a point that significantly deviates from its expected value. Therefore, given a univariate time series, a point at time t can be declared an outlier if the distance to its expected value is higher than a predefined threshold. If <span class="math inline">\(\hat{x}_t\)</span> is obtained using previous and subsequent observations to <span class="math inline">\(x_t\)</span> (past, current, and future data), then the technique is within the estimation model-based methods. In contrast, if <span class="math inline">\(\hat{x}_t\)</span> is obtained relying only on previous observations to <span class="math inline">\(x_t\)</span> (past data), then the technique is within the prediction model-based methods.</p>
 <ul>
 <li><strong>Estimation</strong>:
 <ul>
@@ -302,49 +298,24 @@ generated by a different mechanism.”.</p>
 <ul>
 <li>ARIMA model</li>
 <li>ARIMA model within a sliding window to compute the prediction interval, so the parameters are refitted each time that the window moves a step forward.</li>
-<li>Extreme value theory:</li>
 </ul></li>
-<li><strong>Density-based</strong>: Techniques within this group consider that points with less than <span class="math inline">\(k\)</span> neighbors are outliers: using sliding windows.</li>
-<li><strong>Histogramming</strong></li>
+<li>Extreme value theory</li>
 </ul></li>
-<li><strong>Subsequences</strong>: This term refers to consecutive points in time whose joint behavior is unusual, although
-each observation individually is not necessarily a point outlier
-<ul>
-<li><strong>Length</strong></li>
-<li><strong>Representation</strong>:</li>
-<li><strong>Periodicity</strong>:</li>
-</ul></li>
-<li><strong>Time Series</strong>: Entire time series can also be outliers, but they can only be detected when the input data is a multivariate time series.</li>
-</ul></li>
-<li><strong>Nature of the method</strong>: A univariate detection method only considers a single time-dependent variable, whereas a multivariate detection method is able to simultaneously work with more than one time-dependent variable
-<ul>
-<li><strong>Univariate</strong></li>
-<li><strong>Multivariate</strong></li>
-</ul></li>
+<li><p><strong>Density-based</strong>: Techniques within this group consider that points with less than <span class="math inline">\(k\)</span> neighbors are outliers: using sliding windows.</p></li>
+<li><p><strong>Histogramming</strong></p></li>
 </ul>
 </div>
-<div id="globa-vs-local-anomalies" class="section level3" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> Globa VS local anomalies</h3>
 </div>
-<div id="univariate-vs-multivariate" class="section level3" number="6.1.4">
-<h3><span class="header-section-number">6.1.4</span> Univariate VS Multivariate</h3>
-</div>
-<div id="evaluation-metrics" class="section level3" number="6.1.5">
-<h3><span class="header-section-number">6.1.5</span> Evaluation metrics</h3>
-<ul>
-<li>False psitive…out of confidence interval, the sample is flagged as anomaly.</li>
-</ul>
-</div>
-<div id="types-of-anomalies-in-time-series" class="section level3" number="6.1.6">
-<h3><span class="header-section-number">6.1.6</span> Types of anomalies in time series</h3>
+<div id="types-of-anomalies-in-time-series" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Types of anomalies in time series</h3>
 <ul>
 <li><strong>Additive outliers:</strong> For example, we are tracking users at our website and we see an uexpected growth of users in a short period of time that looks like a spike.</li>
 <li><strong>Temporal changes:</strong> For example, when our server goes down and you see zero or a really low number of users for some short period of time.</li>
 <li><strong>Level shifts:</strong> In the case that you deal with some conversion funnel, there could be a drop in a conversion rate. If this happens, the target metric usually doesn’t change the shape of a signal, but rather its total value for a period.</li>
 </ul>
 </div>
-<div id="methodological-approaches" class="section level3" number="6.1.7">
-<h3><span class="header-section-number">6.1.7</span> Methodological Approaches</h3>
+<div id="methodological-approaches" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Methodological Approaches</h3>
 <ul>
 <li>Statistical based methods</li>
 <li>Forecasting-based approaches: In thi methodology, a prediction is performed with a forecasting model for the next time period and if forecasted value is out of confidence interval, the sample is flagged as anomaly.</li>
@@ -354,8 +325,8 @@ each observation individually is not necessarily a point outlier
 <li>Tree Based Approaches</li>
 <li>Dimension Reduction Based Approaches</li>
 </ul>
-<div id="how-to-select-the-best-approache" class="section level4" number="6.1.7.1">
-<h4><span class="header-section-number">6.1.7.1</span> How to select the best approache</h4>
+<div id="how-to-select-the-best-approache" class="section level4" number="5.1.4.1">
+<h4><span class="header-section-number">5.1.4.1</span> How to select the best approache</h4>
 <p>Before starting the study, answer the following questions:</p>
 <ul>
 <li>How much data do you have retroactively?</li>
@@ -366,19 +337,95 @@ each observation individually is not necessarily a point outlier
 </div>
 </div>
 </div>
-<div id="statistical-based-approaches" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Statistical-based approaches</h2>
-<div id="stl-decomposition" class="section level3" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> STL decomposition</h3>
+<div id="statistical-based-approaches" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Statistical-based approaches</h2>
+<div id="descriptive-statistics" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Descriptive statistics</h3>
+<div id="histogram" class="section level4" number="5.2.1.1">
+<h4><span class="header-section-number">5.2.1.1</span> Histogram</h4>
+<p>A basic way to detect outliers is to draw a histogram of thed ata</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="outlier-detection-in-time-series.html#cb94-1" aria-hidden="true"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb94-2"><a href="outlier-detection-in-time-series.html#cb94-2" aria-hidden="true"></a>dat &lt;-<span class="st"> </span>ggplot2<span class="op">::</span>mpg</span>
+<span id="cb94-3"><a href="outlier-detection-in-time-series.html#cb94-3" aria-hidden="true"></a><span class="kw">ggplot</span>(dat) <span class="op">+</span></span>
+<span id="cb94-4"><a href="outlier-detection-in-time-series.html#cb94-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> hwy) <span class="op">+</span></span>
+<span id="cb94-5"><a href="outlier-detection-in-time-series.html#cb94-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> 30L, <span class="dt">fill =</span> <span class="st">&quot;#0c4c8a&quot;</span>) <span class="op">+</span></span>
+<span id="cb94-6"><a href="outlier-detection-in-time-series.html#cb94-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="TimeSerieAnalysis-Book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+<div id="boxplot-iqr-interquartile-range" class="section level4" number="5.2.1.2">
+<h4><span class="header-section-number">5.2.1.2</span> Boxplot: IQR (Interquartile range)</h4>
+<ul>
+<li><p>A boxplot helps to visualize a quantitative variable by dsplaying 4 common location summary (min, median, first and third quartiles, max) and any observation that was classified as a suspected outlier using the <strong>interquartile range (IQR)</strong> criteria.</p></li>
+<li><p>The IQR criteria means that all obsevations above <span class="math inline">\(q_{0.75} + 1.5 * IQR\)</span> or below <span class="math inline">\(q_{0.25} - 1.5 * IQR\)</span> (where <span class="math inline">\(q_{0.75}\)</span> and <span class="math inline">\(q_{0.25}\)</span> correspond to first and third quartile respectively, and <span class="math inline">\(IQR\)</span> is the difference between the third and first quartile) are considered as potential outliers..</p></li>
+</ul>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="outlier-detection-in-time-series.html#cb95-1" aria-hidden="true"></a><span class="kw">ggplot</span>(dat) <span class="op">+</span></span>
+<span id="cb95-2"><a href="outlier-detection-in-time-series.html#cb95-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> hwy) <span class="op">+</span></span>
+<span id="cb95-3"><a href="outlier-detection-in-time-series.html#cb95-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;#0c4c8a&quot;</span>) <span class="op">+</span></span>
+<span id="cb95-4"><a href="outlier-detection-in-time-series.html#cb95-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_minimal</span>()</span></code></pre></div>
+<p><img src="TimeSerieAnalysis-Book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="hampler-filter" class="section level4" number="5.2.1.3">
+<h4><span class="header-section-number">5.2.1.3</span> Hampler filter</h4>
+<ul>
+<li>Hampler filter consists of considering as outliers the values ourside the interval <span class="math inline">\((I)\)</span> formed by the median, plus or minus 3 median absolute deviations $(MAD)*:</li>
+</ul>
+<p><span class="math display">\[I=[median - 3 * MAD; median + 3 * MAD]\]</span></p>
+<p>where <span class="math inline">\(MAD\)</span> is the median obsolute deviation and is defined as the median of the absolute deviations from the data’s median</p>
+<p><span class="math display">\[MAS = median(|X_{i}-med_{X}|)\]</span></p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="outlier-detection-in-time-series.html#cb96-1" aria-hidden="true"></a><span class="co"># lower_bound</span></span>
+<span id="cb96-2"><a href="outlier-detection-in-time-series.html#cb96-2" aria-hidden="true"></a>lower_bound &lt;-<span class="st"> </span><span class="kw">median</span>(dat<span class="op">$</span>hwy) <span class="op">-</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="kw">mad</span>(dat<span class="op">$</span>hwy)</span>
+<span id="cb96-3"><a href="outlier-detection-in-time-series.html#cb96-3" aria-hidden="true"></a>lower_bound</span></code></pre></div>
+<pre><code>## [1] 1.761</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="outlier-detection-in-time-series.html#cb98-1" aria-hidden="true"></a><span class="co"># upper_bound</span></span>
+<span id="cb98-2"><a href="outlier-detection-in-time-series.html#cb98-2" aria-hidden="true"></a>upper_bound &lt;-<span class="st"> </span><span class="kw">median</span>(dat<span class="op">$</span>hwy) <span class="op">+</span><span class="st"> </span><span class="dv">3</span> <span class="op">*</span><span class="st"> </span><span class="kw">mad</span>(dat<span class="op">$</span>hwy)</span>
+<span id="cb98-3"><a href="outlier-detection-in-time-series.html#cb98-3" aria-hidden="true"></a>upper_bound</span></code></pre></div>
+<pre><code>## [1] 46.239</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="outlier-detection-in-time-series.html#cb100-1" aria-hidden="true"></a><span class="co"># outlier</span></span>
+<span id="cb100-2"><a href="outlier-detection-in-time-series.html#cb100-2" aria-hidden="true"></a>outlier_ind &lt;-<span class="st"> </span><span class="kw">which</span>(dat<span class="op">$</span>hwy <span class="op">&lt;</span><span class="st"> </span>lower_bound <span class="op">|</span><span class="st"> </span>dat<span class="op">$</span>hwy <span class="op">&gt;</span><span class="st"> </span>upper_bound)</span>
+<span id="cb100-3"><a href="outlier-detection-in-time-series.html#cb100-3" aria-hidden="true"></a>outlier_ind</span></code></pre></div>
+<pre><code>## integer(0)</code></pre>
+</div>
+</div>
+<div id="statistical-tests" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Statistical tests</h3>
+<div id="grubbss-test" class="section level4" number="5.2.2.1">
+<h4><span class="header-section-number">5.2.2.1</span> Grubbs’s test</h4>
+<ul>
+<li><a href="https://www.statsandr.com/blog/outliers-detection-in-r/" class="uri">https://www.statsandr.com/blog/outliers-detection-in-r/</a></li>
+</ul>
+</div>
+<div id="dixons-test" class="section level4" number="5.2.2.2">
+<h4><span class="header-section-number">5.2.2.2</span> Dixon’s test</h4>
+<ul>
+<li><a href="https://www.statsandr.com/blog/outliers-detection-in-r/" class="uri">https://www.statsandr.com/blog/outliers-detection-in-r/</a></li>
+</ul>
+</div>
+<div id="rosners-test" class="section level4" number="5.2.2.3">
+<h4><span class="header-section-number">5.2.2.3</span> Rosner’s test</h4>
+<ul>
+<li><a href="https://www.statsandr.com/blog/outliers-detection-in-r/" class="uri">https://www.statsandr.com/blog/outliers-detection-in-r/</a></li>
+</ul>
+</div>
+<div id="z-score" class="section level4" number="5.2.2.4">
+<h4><span class="header-section-number">5.2.2.4</span> Z score</h4>
+<p>Z-scores can quantify the usefulness of an observation when your data follow the normal distribution. Z-scores are the number of standard deviations above and below the mean that each value falls. For example, a z-score of 2 indicates that an observation is two standard deviations above the average while a z-score of -2 signifies it is two standard deviations below the mean.
+To calculate a z-score for an observation, take the raw measurement, substract the mean, and divide by the standard deviation. Mathematically, the formule for that process is the following:</p>
+<p><span class="math display">\[ Z = \frac{X - \mu}{\sigma}\]</span></p>
+<p>where <span class="math inline">\(\mu\)</span> is the mean of the population and <span class="math inline">\(\sigma\)</span> is the standard deviation of the population. The further away an observation’s z-score is from zero, the more unusual it is. A standard cut-off value for finding outliers are z-scores of +/- 3 further from zero.
+In a population that follows the normal distribution, z-score values more extreme than +/- 3 have a probability of 0.0027 (2*0.00135), which is about 1 in 370 observations. However if your data don’t follow the normal distribution, this approach might not be accurate.</p>
+</div>
+</div>
+<div id="stl-decomposition" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> STL decomposition</h3>
 <p>STL stands for seasonal-trend decomposition procedure based on Loess. This technique gives you an ability to split your time series signal into three parts: seasonal, trend and residue.</p>
 <p>The leading implementation of this approach is Twitter’s Anomaly Detection library. It uses Generalized Extreme Student Deviation test to check if a residual point is an outlier.</p>
 </div>
-<div id="generalized-esd-test-for-outliers" class="section level3" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> Generalized ESD Test for Outliers</h3>
+<div id="generalized-esd-test-for-outliers" class="section level3" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Generalized ESD Test for Outliers</h3>
 <p><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h3.htm" class="uri">https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h3.htm</a></p>
 </div>
-<div id="extreme-studentized-deviate-technique-esd" class="section level3" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> Extreme Studentized Deviate Technique (ESD)</h3>
+<div id="extreme-studentized-deviate-technique-esd" class="section level3" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Extreme Studentized Deviate Technique (ESD)</h3>
 <p>the Extreme Studentized Deviate (ESD) test is employed to make the decision: the null hypothesis
 considered is that there are no outliers, whereas the alternative is that there are up to k. Regardless of the temporal correlation, the algorithm computes k test statistics iteratively to detect k point outliers. At each iteration, it removes the most outlying observation (i.e., the furthest from the mean value).</p>
 <ul>
@@ -386,70 +433,70 @@ considered is that there are no outliers, whereas the alternative is that there 
 </ul>
 </div>
 </div>
-<div id="forecasting-based-approaches" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Forecasting-based approaches</h2>
-<div id="moving-average-method" class="section level3" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Moving Average Method</h3>
+<div id="forecasting-based-approaches" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Forecasting-based approaches</h2>
+<div id="moving-average-method" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Moving Average Method</h3>
 <p>In this method with the help of the moving average of past data, present-day value is estimated. A moving average can be exponential Moving average or simple Moving aberage. The expoential moving average gives more weight to recent data.</p>
 </div>
-<div id="arma" class="section level3" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> ARMA</h3>
+<div id="arma" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> ARMA</h3>
 </div>
-<div id="prophet" class="section level3" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Prophet</h3>
+<div id="prophet" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Prophet</h3>
 <p>Prophet” was Published by Facebook which uses additive regression model. This model helps in detecting anomalies. Prophet automatically detects changes in trends by selecting change points from the data and also do some modification in seasonal components (year, month) by some techniques like Fourier Transform.</p>
 </div>
 </div>
-<div id="neural-network-based-approaches" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Neural Network Based Approaches</h2>
-<div id="autoencoder" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Autoencoder</h3>
+<div id="neural-network-based-approaches" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Neural Network Based Approaches</h2>
+<div id="autoencoder" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Autoencoder</h3>
 <p>Autoencoder is an unsupervised type neural networks, and mainly used for feature extraction and dimension reduction. At the same time, it is a good option for anomaly detection problems. Autoencoder consists of encoding and decoding parts. In encoding part, main features are extracted which represents the patterns in the data, and then each samples is reconstructed in the decoding part. The reconstruction error will be minumum for normal samples. On the other hand, the model is not able to reconstruct a sample that behaves abnormal, resulting a high reconstruction error. So, basically, the higher reconstruction error a sample has, the more likely it is to be an anomaly.</p>
 </div>
 </div>
-<div id="clustering-based-approaches" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Clustering Based Approaches</h2>
-<div id="kmeans" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Kmeans</h3>
+<div id="clustering-based-approaches" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Clustering Based Approaches</h2>
+<div id="kmeans" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Kmeans</h3>
 </div>
-<div id="gaussina-mixture-model-gmm" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Gaussina Mixture Model (GMM)</h3>
+<div id="gaussina-mixture-model-gmm" class="section level3" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Gaussina Mixture Model (GMM)</h3>
 <p>It attemps to find a mixture of a finite number of Gaussian distributions inside the dataset.</p>
 </div>
-<div id="dbscan-1" class="section level3" number="6.5.3">
-<h3><span class="header-section-number">6.5.3</span> DBSCAN</h3>
+<div id="dbscan" class="section level3" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> DBSCAN</h3>
 <p>DBSCAN is a density based clustering algorithm. It determines the core points in the dataset which contains at least min_samples around it within epsilon distance, and creates clusters from these samples. After that, it finds all points which are densely reachable(within epsilon distance) from any sample in the cluster and add them to the cluster. And then, iteratively, it performs the same procedure for the newly added samples and extend the cluster. DBSCAN determines the cluster number by itself, and outliers samples will be assigned as -1. In other words, it directly serves for anomaly detection. Note that, it might suffer from perfromance issues with large sized datasets.</p>
 </div>
 </div>
-<div id="proximity-based-approaches" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Proximity Based Approaches</h2>
-<div id="k-nearest-neighbor" class="section level3" number="6.6.1">
-<h3><span class="header-section-number">6.6.1</span> K-Nearest neighbor:</h3>
+<div id="proximity-based-approaches" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Proximity Based Approaches</h2>
+<div id="k-nearest-neighbor" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> K-Nearest neighbor:</h3>
 <p>The first algorithm that come to mind is k-nearest neighbor(k-NN) algorithm. The simple logic behind is that outliers are far away from the rest of samples in the data plane. The distances to nearest negihbors of all samples are estimated and the samples located far from the other samples can be flagged as outlier. k-NN can use different distance metrics like Eucledian, Manhattan, Minkowski, Hamming distance etc.</p>
 </div>
-<div id="local-outlier-factor-lof" class="section level3" number="6.6.2">
-<h3><span class="header-section-number">6.6.2</span> Local Outlier Factor (LOF)</h3>
+<div id="local-outlier-factor-lof" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Local Outlier Factor (LOF)</h3>
 <p>It identifies the local outliers with respect to local neighbors rather than global data distribution. It utilizes a metric named as local reachability density(lrd) in order to represents density level of each points. LOF of a sample is simply the ratio of average lrd values of the sample’s neighbours to lrd value of the sample itself. If the density of a point is much smaller than average density of its neighbors, then it is likely to be an anomaly.</p>
 </div>
 </div>
-<div id="tree-based-approaches" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Tree Based Approaches</h2>
-<div id="isolation-forest" class="section level3" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> Isolation Forest</h3>
+<div id="tree-based-approaches" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Tree Based Approaches</h2>
+<div id="isolation-forest" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> Isolation Forest</h3>
 <p>Isolation Forest is a tree based, very effective algorithm for detecting anomalies. It builds multiple trees. To build a tree, it randomly picks a feature and a split value within the minimums and maximums values of the corresponding feature. This procedure is applied to all samples in the dataset. And finally, a tree ensemble is composed by averaging all trees in the forest.
 The idea behind the Isolation Forest is that outliers are easy to diverge from rest of the samples in dataset. For this reason, we expect shorter paths from root to a leaf node in a tree(the number of splittings required to isolate the sample) for abnormal samples compared to rest of the samples in dataset.</p>
 </div>
 </div>
-<div id="dimension-reduction-based-approaches" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Dimension Reduction Based Approaches</h2>
-<div id="principal-component-analyses-pca" class="section level3" number="6.8.1">
-<h3><span class="header-section-number">6.8.1</span> Principal Component Analyses (PCA)</h3>
+<div id="dimension-reduction-based-approaches" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> Dimension Reduction Based Approaches</h2>
+<div id="principal-component-analyses-pca" class="section level3" number="5.8.1">
+<h3><span class="header-section-number">5.8.1</span> Principal Component Analyses (PCA)</h3>
 <p>Principal Component Analyses (PCA) is mainly used as a dimension reduction method for high dimensional data. In a basic manner, it helps to cover most of the variance in data with a smaller dimension by extracting eigenvectors that have largest eigenvalues. Therefore, it is able to keep most of the information in the data with a very smaller dimension.</p>
 <p>While using PCA in anomaly detection, it follows a very similar approach like Autoencoders. Firstly, it decomposes data into a smaller dimension and then it reconstructs data from the decomposed version of data again. Abnormal samples tend to have a high reconstruction error regarding that they have different behaviors from other observations in data, so it is diffucult to obtain same observation from the decomposed version. PCA can be a good option for multivariate anomaly detection scenarios.</p>
 </div>
 </div>
-<div id="references-3" class="section level2" number="6.9">
-<h2><span class="header-section-number">6.9</span> References</h2>
+<div id="references-2" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> References</h2>
 <ul>
 <li><a href="https://medium.com/learningdatascience/anomaly-detection-techniques-in-python-50f650c75aaf" class="uri">https://medium.com/learningdatascience/anomaly-detection-techniques-in-python-50f650c75aaf</a></li>
 <li>A review on outlier/anomaly detection in time series data: <a href="https://arxiv.org/pdf/2002.04236.pdf" class="uri">https://arxiv.org/pdf/2002.04236.pdf</a></li>
@@ -462,8 +509,8 @@ The idea behind the Isolation Forest is that outliers are easy to diverge from r
           </div>
         </div>
       </div>
-<a href="outlier-detection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="time-series-forecasting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

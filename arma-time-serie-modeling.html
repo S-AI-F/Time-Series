@@ -24,14 +24,14 @@
 <meta name="author" content="Saif Shabou" />
 
 
-<meta name="date" content="2020-12-09" />
+<meta name="date" content="2020-12-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introduction.html"/>
+<link rel="prev" href="time-series-basics.html"/>
 <link rel="next" href="time-series-forecasting.html"/>
 <script src="libs/header-attrs-2.1/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -130,34 +130,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Tie Series Analysis with R</a></li>
+<li><a href="./">Time Series Analysis with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="time-series-basics.html"><a href="time-series-basics.html"><i class="fa fa-check"></i><b>2</b> Time series basics</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction.html"><a href="introduction.html#what-is-a-time-series"><i class="fa fa-check"></i><b>2.1</b> What is a Time Series</a>
+<li class="chapter" data-level="2.1" data-path="time-series-basics.html"><a href="time-series-basics.html#what-is-a-time-series"><i class="fa fa-check"></i><b>2.1</b> What is a Time Series</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="introduction.html"><a href="introduction.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
+<li class="chapter" data-level="2.1.1" data-path="time-series-basics.html"><a href="time-series-basics.html#definition"><i class="fa fa-check"></i><b>2.1.1</b> Definition</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="introduction.html"><a href="introduction.html#time-series-exploration"><i class="fa fa-check"></i><b>2.2</b> Time Series exploration</a>
+<li class="chapter" data-level="2.2" data-path="time-series-basics.html"><a href="time-series-basics.html#time-series-exploration"><i class="fa fa-check"></i><b>2.2</b> Time Series exploration</a></li>
+<li class="chapter" data-level="2.3" data-path="time-series-basics.html"><a href="time-series-basics.html#time-series-patterns"><i class="fa fa-check"></i><b>2.3</b> Time Series patterns</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="introduction.html"><a href="introduction.html#understanding-your-time-series"><i class="fa fa-check"></i><b>2.2.1</b> Understanding your Time Series</a></li>
-<li class="chapter" data-level="2.2.2" data-path="introduction.html"><a href="introduction.html#what-is-a-stationary-time-series"><i class="fa fa-check"></i><b>2.2.2</b> What is a Stationary Time Series ?</a></li>
-<li class="chapter" data-level="2.2.3" data-path="introduction.html"><a href="introduction.html#how-to-extract-the-trend-seasonality-and-error"><i class="fa fa-check"></i><b>2.2.3</b> How to extract the trend, seasonality and error?</a></li>
+<li class="chapter" data-level="2.3.1" data-path="time-series-basics.html"><a href="time-series-basics.html#how-to-extract-the-trend-seasonality-and-error"><i class="fa fa-check"></i><b>2.3.1</b> How to extract the trend, seasonality and error?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="time-series-basics.html"><a href="time-series-basics.html#how-to-de-trend-a-time-series"><i class="fa fa-check"></i><b>2.3.2</b> How to de-trend a time series ?</a></li>
+<li class="chapter" data-level="2.3.3" data-path="time-series-basics.html"><a href="time-series-basics.html#how-to-de-seasonalize-a-time-series-in-r"><i class="fa fa-check"></i><b>2.3.3</b> How to de-seasonalize a time series in R?</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="introduction.html"><a href="introduction.html#time-series-patterns"><i class="fa fa-check"></i><b>2.3</b> Time Series patterns</a>
+<li class="chapter" data-level="2.4" data-path="time-series-basics.html"><a href="time-series-basics.html#stationarity-in-time-series"><i class="fa fa-check"></i><b>2.4</b> Stationarity in Time Series</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="introduction.html"><a href="introduction.html#how-to-de-trend-a-time-series"><i class="fa fa-check"></i><b>2.3.1</b> How to de-trend a time series ?</a></li>
-<li class="chapter" data-level="2.3.2" data-path="introduction.html"><a href="introduction.html#how-to-de-seasonalize-a-time-series-in-r"><i class="fa fa-check"></i><b>2.3.2</b> How to de-seasonalize a time series in R?</a></li>
+<li class="chapter" data-level="2.4.1" data-path="time-series-basics.html"><a href="time-series-basics.html#elementary-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Elementary statistics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="time-series-basics.html"><a href="time-series-basics.html#stationarity-definition"><i class="fa fa-check"></i><b>2.4.2</b> Stationarity definition</a></li>
+<li class="chapter" data-level="2.4.3" data-path="time-series-basics.html"><a href="time-series-basics.html#stationarity-test"><i class="fa fa-check"></i><b>2.4.3</b> Stationarity test</a></li>
+<li class="chapter" data-level="2.4.4" data-path="time-series-basics.html"><a href="time-series-basics.html#make-a-time-series-stationary"><i class="fa fa-check"></i><b>2.4.4</b> Make a time series stationary</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="introduction.html"><a href="introduction.html#auto-correlation-in-time-series-analysis"><i class="fa fa-check"></i><b>2.4</b> Auto-correlation in Time Series Analysis</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="introduction.html"><a href="introduction.html#elementary-statistics"><i class="fa fa-check"></i><b>2.4.1</b> Elementary statistics</a></li>
-<li class="chapter" data-level="2.4.2" data-path="introduction.html"><a href="introduction.html#stationarity-in-time-series-analysis"><i class="fa fa-check"></i><b>2.4.2</b> Stationarity in time series analysis</a></li>
-<li class="chapter" data-level="2.4.3" data-path="introduction.html"><a href="introduction.html#auto-correlation"><i class="fa fa-check"></i><b>2.4.3</b> Auto-correlation</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="introduction.html"><a href="introduction.html#references"><i class="fa fa-check"></i><b>2.5</b> References</a></li>
+<li class="chapter" data-level="2.5" data-path="time-series-basics.html"><a href="time-series-basics.html#auto-correlation"><i class="fa fa-check"></i><b>2.5</b> Auto-correlation</a></li>
+<li class="chapter" data-level="2.6" data-path="time-series-basics.html"><a href="time-series-basics.html#references"><i class="fa fa-check"></i><b>2.6</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="arma-time-serie-modeling.html"><a href="arma-time-serie-modeling.html"><i class="fa fa-check"></i><b>3</b> ARMA Time serie modeling</a>
 <ul>
@@ -419,7 +417,7 @@ It can be formulated with the following equation known as MA(1) formulation: <sp
           </div>
         </div>
       </div>
-<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="time-series-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="time-series-forecasting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
